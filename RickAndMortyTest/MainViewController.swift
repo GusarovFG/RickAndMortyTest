@@ -10,10 +10,11 @@ import UIKit
 class MainViewController: UIViewController {
     
     private var charactersCollectionView: UICollectionView!
+    private var backgroundColor = #colorLiteral(red: 0.01568627451, green: 0.04705882353, blue: 0.1176470588, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        self.setupViews()
         
     }
     
@@ -23,24 +24,9 @@ class MainViewController: UIViewController {
         self.createConstraints()
     }
     
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-        
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
-    
     private func setupViews() {
         
-        self.view.backgroundColor = #colorLiteral(red: 0.01568627451, green: 0.04705882353, blue: 0.1176470588, alpha: 1)
+        self.view.backgroundColor = self.backgroundColor
         
         self.title = "Characters"
         self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.01568627451, green: 0.04705882353, blue: 0.1176470588, alpha: 0)
@@ -50,6 +36,7 @@ class MainViewController: UIViewController {
         
         let flowLayout = UICollectionViewFlowLayout()
         self.charactersCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        self.charactersCollectionView.backgroundColor = self.backgroundColor
         
         self.charactersCollectionView.delegate = self
         self.charactersCollectionView.dataSource = self
@@ -69,7 +56,7 @@ class MainViewController: UIViewController {
             self.charactersCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 20),
         ])
         
-        self.charactersCollectionView.backgroundColor = .blue
+        
     }
 }
 
@@ -79,7 +66,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CharactersCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CharactersCollectionViewCell
+        cell.setupUI(image: UIImage(systemName: "eye")!, name: "Жопа")
+        
+        return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
