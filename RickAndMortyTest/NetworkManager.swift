@@ -38,6 +38,22 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    func fetchNextCharacters(url: String?) -> [Character] {
+        
+        var characters: [Character] = []
+        
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
+            DispatchQueue.global().async {
+                self.fetchCharacters(from: url) { ricksAndMorteys in
+                    
+                    characters = ricksAndMorteys.results
+                }
+            }
+        }
+        
+        return characters
+    }
 
     // MARK: All episodes from API
     // Downloading episodes list
@@ -151,7 +167,7 @@ class NetworkManager {
                 print(error?.localizedDescription ?? "no descripption")
                 return
             }
-
+            
             do {
                 let result = try JSONDecoder().decode(Episode.self, from: data)
                 DispatchQueue.main.async {
@@ -162,4 +178,23 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    func fetchImage(from url: String, complition: @escaping (Data, URLResponse) -> ()) {
+        guard let imageURL = URL(string: url) else { return }
+        URLSession.shared.dataTask(with: imageURL) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data = data, let response = response else {
+                    print(error?.localizedDescription ?? "No error description")
+                    return
+                }
+                
+                guard imageURL == response.url else { return }
+                DispatchQueue.main.async {
+                    complition(data, response)
+                }
+            }
+            
+        }.resume()
+    }
+    
 }

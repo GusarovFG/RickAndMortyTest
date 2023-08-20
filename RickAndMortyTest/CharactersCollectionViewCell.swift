@@ -12,6 +12,8 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     private var characterImage = UIImageView(frame: .zero)
     private var nameLabel = UILabel(frame: .zero)
     
+    private let networkManager = NetworkManager.shared
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -26,15 +28,21 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         setupConstraint()
         
         self.layer.cornerRadius = 16
+        
+        self.characterImage.layer.masksToBounds = true
         self.characterImage.layer.cornerRadius = 10
     }
     
-   func setupUI(image: UIImage, name: String) {
+    func setupUI(character: Character) {
         
-        self.characterImage.image = image
-        self.nameLabel.text = name
-       self.nameLabel.textColor = .white
-       self.nameLabel.textAlignment = .center
+        DispatchQueue.global().async {
+            self.networkManager.fetchImage(from: character.image) { img, response in
+                self.characterImage.image = UIImage(data: img)
+            }
+        }
+        self.nameLabel.text = character.name
+        self.nameLabel.textColor = .white
+        self.nameLabel.textAlignment = .center
     }
     
     private func setupConstraint() {

@@ -11,11 +11,24 @@ class MainViewController: UIViewController {
     
     private var charactersCollectionView: UICollectionView!
     private var backgroundColor = #colorLiteral(red: 0.01568627451, green: 0.04705882353, blue: 0.1176470588, alpha: 1)
+    
+    private var data: RickAndMorty?
+    private var characters: [Character] = []
+    private var beginFetch = false
+    
+    private let networkManager = NetworkManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViews()
-        
+        DispatchQueue.global().async {
+            
+            self.networkManager.fetchCharacters(from: URLS.rickAndMortyapi.rawValue) { result in
+                self.data = result
+                self.characters = result.results
+                self.charactersCollectionView.reloadData()
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -55,19 +68,31 @@ class MainViewController: UIViewController {
             self.charactersCollectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             self.charactersCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 20),
         ])
-        
-        
+    }
+    
+    private func fetchNextCharacters() {
+        self.beginFetch = true
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
+            self.networkManager.fetchCharacters(from: self.data?.info.next) { ricksAndMorteys in
+                
+                self.data = ricksAndMorteys
+                self.characters.append(contentsOf: ricksAndMorteys.results.compactMap{$0})
+                self.charactersCollectionView.reloadData()
+                self.beginFetch = false
+            }
+        }
     }
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        self.characters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CharactersCollectionViewCell
-        cell.setupUI(image: UIImage(systemName: "eye")!, name: "Жопа")
+        let character = self.characters[indexPath.row]
+        cell.setupUI(character: character)
         
         return cell
         
@@ -77,4 +102,14 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         CGSize(width: (collectionView.frame.width - 16) / 2, height: 202)
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+        if offSetY > contentHeight - scrollView.frame.height {
+            if !self.beginFetch {
+                self.fetchNextCharacters()
+            }
+        }
+    }
 }
