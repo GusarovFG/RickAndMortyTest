@@ -13,6 +13,9 @@
 		FBAE131B2A928E7400714F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAE131A2A928E7400714F15 /* Assets.xcassets */; };
 		FBAE131E2A928E7400714F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAE131C2A928E7400714F15 /* LaunchScreen.storyboard */; };
 		FBAE13282A92A5E100714F15 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAE13272A92A5E100714F15 /* CharactersCollectionViewCell.swift */; };
+		FBBE50ED2A92BC7500733E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE50EC2A92BC7500733E9E /* NetworkManager.swift */; };
+		FBBE50EF2A92BCB400733E9E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE50EE2A92BCB400733E9E /* Models.swift */; };
+		FBBE50F12A92BD3500733E9E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE50F02A92BD3500733E9E /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		FBAE131D2A928E7400714F15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBAE131F2A928E7400714F15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBAE13272A92A5E100714F15 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
+		FBBE50EC2A92BC7500733E9E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FBBE50EE2A92BCB400733E9E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FBBE50F02A92BD3500733E9E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				FBAE13132A928E7100714F15 /* SceneDelegate.swift */,
 				FBAE13152A928E7100714F15 /* MainViewController.swift */,
 				FBAE13272A92A5E100714F15 /* CharactersCollectionViewCell.swift */,
+				FBBE50EC2A92BC7500733E9E /* NetworkManager.swift */,
+				FBBE50EE2A92BCB400733E9E /* Models.swift */,
+				FBBE50F02A92BD3500733E9E /* Enums.swift */,
 				FBAE131A2A928E7400714F15 /* Assets.xcassets */,
 				FBAE131C2A928E7400714F15 /* LaunchScreen.storyboard */,
 				FBAE131F2A928E7400714F15 /* Info.plist */,
@@ -139,6 +148,9 @@
 			files = (
 				FBAE13282A92A5E100714F15 /* CharactersCollectionViewCell.swift in Sources */,
 				FBAE13162A928E7100714F15 /* MainViewController.swift in Sources */,
+				FBBE50ED2A92BC7500733E9E /* NetworkManager.swift in Sources */,
+				FBBE50EF2A92BCB400733E9E /* Models.swift in Sources */,
+				FBBE50F12A92BD3500733E9E /* Enums.swift in Sources */,
 				FBAE13122A928E7100714F15 /* AppDelegate.swift in Sources */,
 				FBAE13142A928E7100714F15 /* SceneDelegate.swift in Sources */,
 			);
