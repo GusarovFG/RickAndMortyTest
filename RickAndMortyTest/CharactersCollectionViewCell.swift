@@ -18,8 +18,6 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         self.backgroundColor = #colorLiteral(red: 0.1976234317, green: 0.219899714, blue: 0.2836517096, alpha: 1)
-        
-        
     }
     
     override func layoutSubviews() {

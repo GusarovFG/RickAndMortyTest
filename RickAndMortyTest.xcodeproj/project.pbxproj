@@ -16,6 +16,11 @@
 		FBBE50ED2A92BC7500733E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE50EC2A92BC7500733E9E /* NetworkManager.swift */; };
 		FBBE50EF2A92BCB400733E9E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE50EE2A92BCB400733E9E /* Models.swift */; };
 		FBBE50F12A92BD3500733E9E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBE50F02A92BD3500733E9E /* Enums.swift */; };
+		FBF188C42A93D5F500E41708 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF188C32A93D5F500E41708 /* DetailTableViewController.swift */; };
+		FBF188C62A93D6D300E41708 /* HeaderrTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF188C52A93D6D300E41708 /* HeaderrTableViewCell.swift */; };
+		FBF188C82A93D6E400E41708 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF188C72A93D6E400E41708 /* InfoTableViewCell.swift */; };
+		FBF188CA2A93D6F900E41708 /* OriginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF188C92A93D6F900E41708 /* OriginTableViewCell.swift */; };
+		FBF188CC2A93D70B00E41708 /* EpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF188CB2A93D70B00E41708 /* EpisodesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		FBBE50EC2A92BC7500733E9E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FBBE50EE2A92BCB400733E9E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		FBBE50F02A92BD3500733E9E /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		FBF188C32A93D5F500E41708 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		FBF188C52A93D6D300E41708 /* HeaderrTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderrTableViewCell.swift; sourceTree = "<group>"; };
+		FBF188C72A93D6E400E41708 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		FBF188C92A93D6F900E41708 /* OriginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginTableViewCell.swift; sourceTree = "<group>"; };
+		FBF188CB2A93D70B00E41708 /* EpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,11 @@
 				FBAE13112A928E7100714F15 /* AppDelegate.swift */,
 				FBAE13132A928E7100714F15 /* SceneDelegate.swift */,
 				FBAE13152A928E7100714F15 /* MainViewController.swift */,
+				FBF188C32A93D5F500E41708 /* DetailTableViewController.swift */,
+				FBF188C52A93D6D300E41708 /* HeaderrTableViewCell.swift */,
+				FBF188C72A93D6E400E41708 /* InfoTableViewCell.swift */,
+				FBF188C92A93D6F900E41708 /* OriginTableViewCell.swift */,
+				FBF188CB2A93D70B00E41708 /* EpisodesTableViewCell.swift */,
 				FBAE13272A92A5E100714F15 /* CharactersCollectionViewCell.swift */,
 				FBBE50EC2A92BC7500733E9E /* NetworkManager.swift */,
 				FBBE50EE2A92BCB400733E9E /* Models.swift */,
@@ -146,12 +161,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF188CA2A93D6F900E41708 /* OriginTableViewCell.swift in Sources */,
+				FBF188CC2A93D70B00E41708 /* EpisodesTableViewCell.swift in Sources */,
 				FBAE13282A92A5E100714F15 /* CharactersCollectionViewCell.swift in Sources */,
+				FBF188C82A93D6E400E41708 /* InfoTableViewCell.swift in Sources */,
 				FBAE13162A928E7100714F15 /* MainViewController.swift in Sources */,
 				FBBE50ED2A92BC7500733E9E /* NetworkManager.swift in Sources */,
 				FBBE50EF2A92BCB400733E9E /* Models.swift in Sources */,
+				FBF188C42A93D5F500E41708 /* DetailTableViewController.swift in Sources */,
 				FBBE50F12A92BD3500733E9E /* Enums.swift in Sources */,
 				FBAE13122A928E7100714F15 /* AppDelegate.swift in Sources */,
+				FBF188C62A93D6D300E41708 /* HeaderrTableViewCell.swift in Sources */,
 				FBAE13142A928E7100714F15 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

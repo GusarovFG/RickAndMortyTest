@@ -38,22 +38,6 @@ class NetworkManager {
             }
         }.resume()
     }
-    
-    func fetchNextCharacters(url: String?) -> [Character] {
-        
-        var characters: [Character] = []
-        
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1.0) {
-            DispatchQueue.global().async {
-                self.fetchCharacters(from: url) { ricksAndMorteys in
-                    
-                    characters = ricksAndMorteys.results
-                }
-            }
-        }
-        
-        return characters
-    }
 
     // MARK: All episodes from API
     // Downloading episodes list
