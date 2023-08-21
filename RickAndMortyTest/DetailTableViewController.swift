@@ -28,8 +28,6 @@ class DetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-	
         self.tableView = UITableView(frame: self.tableView.frame, style: .insetGrouped)
         self.tableView.register(HeaderrTableViewCell.self, forCellReuseIdentifier: "header")
         self.tableView.register(InfoTableViewCell.self, forCellReuseIdentifier: "info")
@@ -41,20 +39,12 @@ class DetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        self.navigationController?.navigationBar.tintColor = .white
         
         self.tableView.backgroundColor = #colorLiteral(red: 0.01568627451, green: 0.04705882353, blue: 0.1176470588, alpha: 1)
         self.view.backgroundColor = #colorLiteral(red: 0.01568627451, green: 0.04705882353, blue: 0.1176470588, alpha: 1)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
-    
-    
-    
+
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -73,7 +63,6 @@ class DetailTableViewController: UITableViewController {
             return 0
         }
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -100,7 +89,6 @@ class DetailTableViewController: UITableViewController {
             
             return episodeCell
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

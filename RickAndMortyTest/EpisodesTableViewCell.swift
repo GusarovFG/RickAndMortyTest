@@ -24,6 +24,14 @@ class EpisodesTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         self.backgroundColor = #colorLiteral(red: 0.1976234317, green: 0.219899714, blue: 0.2836517096, alpha: 1)
+        self.layer.borderColor = CGColor(gray: 1, alpha: 0)
+        self.layer.borderWidth = 8
+        self.layer.cornerRadius = 16
+        self.layer.masksToBounds = true
+
+        
+
+
         
         self.episodesNameLabel.font = UIFont(name: "Gilroy", size: 17)
         self.episodesNameLabel.textColor = .white

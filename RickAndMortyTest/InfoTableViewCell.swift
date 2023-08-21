@@ -17,12 +17,6 @@ class InfoTableViewCell: UITableViewCell {
     private let genderStatusLabel = UILabel(frame: .zero)
     private let stackView = UIStackView(frame: .zero)
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -37,7 +31,6 @@ class InfoTableViewCell: UITableViewCell {
         self.genderLaber.translatesAutoresizingMaskIntoConstraints = false
         self.genderStatusLabel.translatesAutoresizingMaskIntoConstraints = false
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
-
         
         self.addSubview(self.stackView)
         
@@ -45,7 +38,6 @@ class InfoTableViewCell: UITableViewCell {
         self.stackView.alignment = .fill
         self.stackView.distribution = .fillEqually
         self.backgroundColor = #colorLiteral(red: 0.1976234317, green: 0.219899714, blue: 0.2836517096, alpha: 1)
-
     
         self.stackView.spacing = 0
         
@@ -64,13 +56,7 @@ class InfoTableViewCell: UITableViewCell {
         
         print("sdafsdf")
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
-    
     func setupCell(character: Character) {
         
         self.speciesStatusLabel.text = character.species
@@ -121,8 +107,6 @@ class InfoTableViewCell: UITableViewCell {
                 statusLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: 0),
                 statusLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: 0)
             ])
-            
         }
     }
-
 }

@@ -14,17 +14,14 @@ class HeaderrTableViewCell: UITableViewCell {
     private let statusLabel = UILabel(frame: .zero)
     
     private let networkManager = NetworkManager.shared
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         
         self.backgroundColor = #colorLiteral(red: 0.01568627451, green: 0.04705882353, blue: 0.1176470588, alpha: 1)
+        
+        self.characterImageView.layer.masksToBounds = true
+        self.characterImageView.layer.cornerRadius = 16
         
         self.nameLabel.font = UIFont(name: "Gilroy", size: 22)
         self.nameLabel.textColor = .white
@@ -60,12 +57,6 @@ class HeaderrTableViewCell: UITableViewCell {
         ])
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func setupCell(character: Character) {
         self.nameLabel.text = character.name
         self.statusLabel.text = character.status
